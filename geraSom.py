@@ -2,12 +2,14 @@ import sounddevice as sd
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 f1=1209
 f2=697
 
 fs = 44100
 t=1
 tempo=np.linspace(0, t, fs*t)
+
 omega1=(2 * np.pi *f1)
 omega2=(2 * np.pi *f2)
 
