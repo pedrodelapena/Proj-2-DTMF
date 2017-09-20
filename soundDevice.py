@@ -10,14 +10,9 @@ sd.wait()
 
 y = audio[:,0]
 
-# reproduz o som
-# sd.play(y, fs)
 
-# aguarda fim da reprodução
-# sd.wait()
-
-
-tempo=np.linspace(0, 1, fs)
+t=3
+tempo=np.linspace(0, t, fs*t)
 # omega1=(2 * np.pi *f1)
 # omega2=(2 * np.pi *f2)
 
@@ -26,10 +21,18 @@ tempo=np.linspace(0, 1, fs)
 
 # y=y1+y2
 
+
+
 x = tempo
 print (len(x), len(y))
 plt.plot(x, y)
-plt.xlim(0,0.015)
+plt.xlim(0,0.15)
 plt.xlabel('tempo')
 plt.ylabel('onda')
 plt.show()
+
+#reproduz o som
+sd.play(y, fs)
+
+#aguarda fim da reprodução
+sd.wait()
