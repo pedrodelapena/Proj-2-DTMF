@@ -51,10 +51,18 @@ def animate(i):
     y = audio[:,0]
 
     ax1.clear()
+    plt.xlim(0,0.010)
     ax1.plot(x[0:1000], y[0:1000])
     
     # line.set_data(x, y)
     # return lin,
+
+    #reproduz o som
+    sd.play(y, fs)
+
+    #aguarda fim da reprodução
+    sd.wait()
+
 
 anim = animation.FuncAnimation(fig, animate, interval=1000)
     
