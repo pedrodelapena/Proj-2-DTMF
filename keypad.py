@@ -36,6 +36,8 @@ class Main():
         self.label.configure(font="Calibri 11")
         self.label.grid(row=4, column=0, columnspan=5, sticky="nswe")
 
+        
+
         alt = 6
         larg = 9
 
