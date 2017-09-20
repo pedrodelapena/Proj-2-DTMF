@@ -1,7 +1,7 @@
 import sounddevice as sd
 import matplotlib.pyplot as plt
 import numpy as np
-
+import freq as fq
 
 
 f1=1209
@@ -11,7 +11,13 @@ fs = 44100
 t=1
 tempo = np.linspace(0, t, fs*t)
 
-def geraSom(f1, f2):
+frequencia = fq.Freq()
+
+def geraSom(fList, num):
+    
+    
+    f1 = fList[0]
+    f2 = fList[1]
     
     omega1=(2 * np.pi *f1)
     omega2=(2 * np.pi *f2)
@@ -23,16 +29,22 @@ def geraSom(f1, f2):
 
     x = tempo
 
-    sd.play(y, fs)
-    sd.wait()
-    
     plt.close("all")
     plt.plot(x, y)
     plt.xlim(0,0.015)
-    plt.title('oi')
+    plt.title(num)
     plt.xlabel('tempo')
     plt.ylabel('onda')
+    
+
+    sd.play(y, fs)
     plt.show()
+    sd.wait()
+
+
+
+    
+       
 
 
 

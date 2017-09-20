@@ -8,7 +8,7 @@ class Main():
         self.frequencia = fq.Freq()
 
         self.window = tk.Tk()
-        self.window.geometry("300x450")
+        self.window.geometry("300x450+10+10")
         self.window.title("Keypad")
         self.window.configure(background = 'dim gray')
         self.window.resizable(False, False)
@@ -26,7 +26,8 @@ class Main():
         self.window.columnconfigure(2, minsize = 100)
 
         self.text_freqs = tk.StringVar()
-        self.text_freqs.set("")
+        self.text_freqs.set("""Freq.1:    
+        freq.2:    """)
         # self.text_freqs.set("""Freq.1: {0} Hz
         # freq.2: {1} Hz""".format(self.frequencia.f1a ,self.frequencia.f1b))
 
@@ -79,43 +80,64 @@ class Main():
         self.buttonOne.configure(command = self.tom0)
 
     def tom1(self):
-        encoderDTMF.geraSom(self.frequencia.f1a, self.frequencia.f1b)
+        self.text_freqs.set("""Freq.1:   {0} Hz
+        freq.2:   {1} Hz""".format(self.frequencia.one[0] ,self.frequencia.one[1]))
 
-        self.text_freqs = tk.StringVar()
-        self.text_freqs.set("""Freq.1: {0} Hz
-        freq.2: {1} Hz""".format(self.frequencia.f1a ,self.frequencia.f1b))
-
-        self.label = tk.Label(self.window)
-        self.label.configure(textvariable=self.text_freqs)
-        self.label.configure(font="Calibri 11")
-        self.label.grid(row=4, column=0, columnspan=5, sticky="nswe")
+        encoderDTMF.geraSom(self.frequencia.one, 'Sinal 1')
 
     def tom2(self):
-        encoderDTMF.geraSom(self.frequencia.f2a, self.frequencia.f2b)
+        self.text_freqs.set("""Freq.1:   {0} Hz
+        freq.2:   {1} Hz""".format(self.frequencia.two[0] ,self.frequencia.two[1]))
+
+        encoderDTMF.geraSom(self.frequencia.two, 'Sinal 2')
     
     def tom3(self):
-        encoderDTMF.geraSom(self.frequencia.f3a, self.frequencia.f3b)
+        self.text_freqs.set("""Freq.1:   {0} Hz
+        freq.2:   {1} Hz""".format(self.frequencia.three[0] ,self.frequencia.three[1]))
+
+        encoderDTMF.geraSom(self.frequencia.three, 'Sinal 3')
 
     def tom4(self):
-        encoderDTMF.geraSom(self.frequencia.f4a, self.frequencia.f4b)
+        self.text_freqs.set("""Freq.1:   {0} Hz
+        freq.2:   {1} Hz""".format(self.frequencia.four[0] ,self.frequencia.four[1]))
+
+        encoderDTMF.geraSom(self.frequencia.four, 'Sinal 4')
 
     def tom5(self):
-        encoderDTMF.geraSom(self.frequencia.f5a, self.frequencia.f5b)
+        self.text_freqs.set("""Freq.1:   {0} Hz
+        freq.2:   {1} Hz""".format(self.frequencia.five[0] ,self.frequencia.five[1]))
+
+        encoderDTMF.geraSom(self.frequencia.five, 'Sinal 5')
 
     def tom6(self):
-        encoderDTMF.geraSom(self.frequencia.f6a, self.frequencia.f6b)
+        self.text_freqs.set("""Freq.1:   {0} Hz
+        freq.2:   {1} Hz""".format(self.frequencia.six[0] ,self.frequencia.six[1]))
+
+        encoderDTMF.geraSom(self.frequencia.six, 'Sinal 6')
 
     def tom7(self):
-        encoderDTMF.geraSom(self.frequencia.f7a, self.frequencia.f7b)
+        self.text_freqs.set("""Freq.1:   {0} Hz
+        freq.2:   {1} Hz""".format(self.frequencia.seven[0] ,self.frequencia.seven[1]))
+
+        encoderDTMF.geraSom(self.frequencia.seven, 'Sinal 7')
 
     def tom8(self):
-        encoderDTMF.geraSom(self.frequencia.f8a, self.frequencia.f8b)
+        self.text_freqs.set("""Freq.1:   {0} Hz
+        freq.2:   {1} Hz""".format(self.frequencia.eight[0] ,self.frequencia.eight[1]))
+
+        encoderDTMF.geraSom(self.frequencia.eight, 'Sinal 8')
 
     def tom9(self):
-        encoderDTMF.geraSom(self.frequencia.f9a, self.frequencia.f9b)
+        self.text_freqs.set("""Freq.1:   {0} Hz
+        freq.2:   {1} Hz""".format(self.frequencia.nine[0] ,self.frequencia.nine[1]))
+
+        encoderDTMF.geraSom(self.frequencia.nine, 'Sinal 9')
 
     def tom0(self):
-        encoderDTMF.geraSom(self.frequencia.f0a, self.frequencia.f0b)
+        self.text_freqs.set("""Freq.1:   {0} Hz
+        freq.2:   {1} Hz""".format(self.frequencia.zero[0] ,self.frequencia.zero[1]))
+
+        encoderDTMF.geraSom(self.frequencia.zero, 'Sinal 0')
         
         
     def iniciar(self):
