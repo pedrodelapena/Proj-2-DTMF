@@ -9,7 +9,7 @@ Projeto 2 Camada Física - 2017.2
 
 ## Geração dos tons
 
-Cada tom foi gerado a partir da soma de duas ondas com frequências diferentes.
+Cada tom foi gerado a partir da soma de duas ondas com frequências diferentes. Para tanto, usamos a fórmula *sen(wt)* para gerar a onda, sendo *w = 2πf* (f é uma das frequncias que compõe cada tom) e com o seno variando em função do tempo. A geração deste sinal está no arquivo [encoderDTMF.py](https://github.com/elisamalzoni/Proj-2-DTMF/blob/master/encoderDTMF.py) e o som tem um segundo de duração. A chamda da função de gerar os tons estão no arquivo [keypad.py](https://github.com/elisamalzoni/Proj-2-DTMF/blob/master/keypad.py), que é a interface do projeto.
 
 ## Frequências que compõem cada tom
 |             |1209 Hz  |1336 Hz  |1477 Hz  |1633 Hz  |
@@ -22,7 +22,7 @@ Cada tom foi gerado a partir da soma de duas ondas com frequências diferentes.
 
 ## Tons Gerados e Captados
 
-Os gráficos acima corresponde o sinal de cada um dos tons em função do tempo. A coluna da esquerda representa a soma dos senos das duas frequências utilizadas. Para tanto, usamos a fórmula *sen(wt)*, sendo *w = 2πf*, com o seno variando em função do tempo. Já nos gráficos da direita, primeiramente, ouviu-se o som de outro computador, e a partir disso, foi gerado o gráfico correspondente. Como é possível notar, apesar de semelhantes, ainda é possível ver várias interferencias (ruídos) que modificam a onda gerada.
+Os gráficos abaixo corresponde o sinal de cada um dos tons em função do tempo. A coluna da esquerda representa a soma dos senos das duas frequências utilizadas. Já nos gráficos da direita, primeiramente, ouviu-se o som de outro computador, e a partir disso, foi gerado o gráfico correspondente. Como é possível notar, apesar de semelhantes, ainda é possível ver várias interferências (ruídos) que modificam a onda gerada. A captação de som e a geração deste gráfico está no arquivo [decoderDTMF.py](https://github.com/elisamalzoni/Proj-2-DTMF/blob/master/decodeDTMF.py)
 
 | Tecla | Gerado                  |Captado               |
 |:-----:|-------------------------|----------------------|
