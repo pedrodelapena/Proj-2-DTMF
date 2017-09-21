@@ -41,67 +41,67 @@ class Main():
 
         self.buttonOne = tk.Button(self.window, text = "1",font = ("Monospace",40))
         self.buttonOne.grid(row = 0, column = 0)
-        self.buttonOne.configure(command = self.tom1, background = "LightSalmon")
+        self.buttonOne.configure(command = self.tom1, background = "LightSalmon", activebackground="Coral1")
 
         self.buttonTwo = tk.Button(self.window, text = "2",font = ("Monospace",40))
         self.buttonTwo.grid(row = 0, column =1)
-        self.buttonTwo.configure(command = self.tom2, background = "Coral1")
+        self.buttonTwo.configure(command = self.tom2, background = "LightSalmon", activebackground="Coral1")
 
         self.buttonThree = tk.Button(self.window, text = "3",font = ("Monospace",40))
         self.buttonThree.grid(row = 0, column = 2)
-        self.buttonThree.configure(command = self.tom3, background = "LightSalmon")
+        self.buttonThree.configure(command = self.tom3, background = "LightSalmon", activebackground="Coral1")
 
         self.buttonFour = tk.Button(self.window, text = "4",font = ("Monospace",40))
         self.buttonFour.grid(row = 1, column = 0)
-        self.buttonFour.configure(command = self.tom4, background = "Coral1")
+        self.buttonFour.configure(command = self.tom4, background = "LightSalmon", activebackground="Coral1")
 
         self.buttonFive = tk.Button(self.window, text = "5",font = ("Monospace",40))
         self.buttonFive.grid(row = 1, column = 1)
-        self.buttonFive.configure(command = self.tom5, background = "LightSalmon")
+        self.buttonFive.configure(command = self.tom5, background = "LightSalmon", activebackground="Coral1")
 
         self.buttonSix = tk.Button(self.window, text = "6",font = ("Monospace",40))
         self.buttonSix.grid(row = 1, column = 2)
-        self.buttonSix.configure(command = self.tom6, background = "Coral1")
+        self.buttonSix.configure(command = self.tom6, background = "LightSalmon", activebackground="Coral1")
 
         self.buttonSeven = tk.Button(self.window, text = "7",font = ("Monospace",40))
         self.buttonSeven.grid(row = 2, column = 0)
-        self.buttonSeven.configure(command = self.tom7, background = "LightSalmon")
+        self.buttonSeven.configure(command = self.tom7, background = "LightSalmon", activebackground="Coral1")
         
         self.buttonEight = tk.Button(self.window, text = "8",font = ("Monospace",40))
         self.buttonEight.grid(row = 2, column = 1)
-        self.buttonEight.configure(command = self.tom8, background = "Coral1")
+        self.buttonEight.configure(command = self.tom8, background = "LightSalmon", activebackground="Coral1")
         
         self.buttonNine = tk.Button(self.window, text = "9",font = ("Monospace",40))
         self.buttonNine.grid(row = 2, column = 2)
-        self.buttonNine.configure(command = self.tom9, background = "LightSalmon")
+        self.buttonNine.configure(command = self.tom9, background = "LightSalmon", activebackground="Coral1")
         
         self.buttonZero = tk.Button(self.window, text = "0",font = ("Monospace",40))
         self.buttonZero.grid(row = 3, column = 1)
-        self.buttonZero.configure(command = self.tom0, background = "LightSalmon")
+        self.buttonZero.configure(command = self.tom0, background = "LightSalmon", activebackground="Coral1")
         
         self.buttonHash = tk.Button(self.window, text = "#",font = ("Monospace",40))
         self.buttonHash.grid(row = 3, column = 2)
-        self.buttonHash.configure(command = self.tomHash, background = "DarkOrange1")
+        self.buttonHash.configure(command = self.tomHash, background = "DarkOrange1", activebackground="DarkOrange2")
 
         self.buttonEstrela = tk.Button(self.window, text = "*",font = ("Monospace",40))
         self.buttonEstrela.grid(row = 3, column = 0)
-        self.buttonEstrela.configure(command = self.tomEstrela, background = "DarkOrange1")
+        self.buttonEstrela.configure(command = self.tomEstrela, background = "DarkOrange1", activebackground="DarkOrange2")
 
         self.buttonA = tk.Button(self.window, text = "A",font = ("Monospace",40))
         self.buttonA.grid(row = 0, column = 3)
-        self.buttonA.configure(command = self.tomA, background = "OrangeRed1")
+        self.buttonA.configure(command = self.tomA, background = "OrangeRed1", activebackground="tomato")
 
         self.buttonB = tk.Button(self.window, text = "B",font = ("Monospace",40))
         self.buttonB.grid(row = 1, column = 3)
-        self.buttonB.configure(command = self.tomB, background = "OrangeRed1")
+        self.buttonB.configure(command = self.tomB, background = "OrangeRed1", activebackground="tomato")
 
         self.buttonC = tk.Button(self.window, text = "C",font = ("Monospace",40))
         self.buttonC.grid(row = 2, column = 3)
-        self.buttonC.configure(command = self.tomC, background = "OrangeRed1")
+        self.buttonC.configure(command = self.tomC, background = "OrangeRed1", activebackground="tomato")
 
         self.buttonD = tk.Button(self.window, text = "D",font = ("Monospace",40))
         self.buttonD.grid(row = 3, column = 3)
-        self.buttonD.configure(command = self.tomD, background = "OrangeRed1")
+        self.buttonD.configure(command = self.tomD, background = "OrangeRed1", activebackground="tomato")
 
 
     def tom1(self):
