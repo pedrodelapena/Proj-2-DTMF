@@ -21,6 +21,9 @@ Cada tom foi gerado a partir da soma de duas ondas com frequências diferentes.
 
 
 ## Tons Gerados e Captados
+
+Os gráficos acima corresponde o sinal de cada um dos tons em função do tempo. A coluna da esquerda representa a soma dos senos das duas frequências utilizadas. Para tanto, usamos a fórmula *sen(wt)*, sendo *w = 2πf*, com o seno variando em função do tempo. Já nos gráficos da direita, primeiramente, ouviu-se o som de outro computador, e a partir disso, foi gerado o gráfico correspondente. Como é possível notar, apesar de semelhantes, ainda é possível ver várias interferencias (ruídos) que modificam a onda gerada.
+
 | Tecla | Gerado                  |Captado               |
 |:-----:|-------------------------|----------------------|
 |1      | ![1](img/1e.png)        |![1](img/1.png)       |
@@ -39,9 +42,3 @@ Cada tom foi gerado a partir da soma de duas ondas com frequências diferentes.
 |D      | ![D](img/de.png)        |![D](img/d.png)       |
 |*      | ![*](img/estrelae.png)  |![*](img/hash.png)    |
 |#      | ![#](img/hashe.png)     |![#](img/estrela.png) |
-
-  Os gráficos acima corresponde o sinal de cada um dos tons em função do tempo. A coluna da esquerda representa a soma dos senos das duas frequências utilizadas. Para tanto, usamos a fórmula *sen(wt)*, sendo *w = 2πf*, com o seno variando em função do tempo. Já nos gráficos da direita, primeiramente, ouviu-se o som de outro computador, e a partir disso, foi gerado o gráfico correspondente. Como é possível notar, apesar de semelhantes, ainda é possível ver várias interferencias (ruídos) que modificam a onda gerada.
-
-
-
-
