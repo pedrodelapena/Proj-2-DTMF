@@ -22,13 +22,14 @@ def geraSom(fList, num):
     omega1=(2 * np.pi *f1)
     omega2=(2 * np.pi *f2)
 
+    # gera senos da duas frequencias
     y1 = np.sin(tempo*omega1)
     y2 = np.sin(tempo*omega2)
 
     y=y1+y2
 
     x = tempo
-
+    # plotagem do gráfico
     plt.close("all")
     plt.plot(x, y)
     plt.xlim(0,0.015)
@@ -36,7 +37,7 @@ def geraSom(fList, num):
     plt.xlabel('tempo')
     plt.ylabel('onda')
     
-
+    # repoduz som 
     sd.play(y, fs)
     plt.show()
     sd.wait()
