@@ -8,7 +8,6 @@ class Main():
         self.frequencia = fq.Freq()
 
         self.window = tk.Tk()
-        # self.window.geometry("400x450+10+10")
         self.window.title("Keypad")
         self.window.configure(background = 'dim gray')
         self.window.resizable(False, False)
@@ -29,16 +28,13 @@ class Main():
         self.text_freqs = tk.StringVar()
         self.text_freqs.set("""Freq.1:    
         freq.2:    """)
-        # self.text_freqs.set("""Freq.1: {0} Hz
-        # freq.2: {1} Hz""".format(self.frequencia.f1a ,self.frequencia.f1b))
 
         self.label = tk.Label(self.window)
         self.label.configure(textvariable=self.text_freqs)
         self.label.configure(font="Monospace 11")
         self.label.grid(row=4, column=0, columnspan = 4, sticky="nswe")
 
-    
-
+        # cria botões
         self.buttonOne = tk.Button(self.window, text = "1",font = ("Monospace",40))
         self.buttonOne.grid(row = 0, column = 0)
         self.buttonOne.configure(command = self.tom1, background = "LightSalmon", activebackground="Coral1")
@@ -103,7 +99,7 @@ class Main():
         self.buttonD.grid(row = 3, column = 3)
         self.buttonD.configure(command = self.tomD, background = "OrangeRed1", activebackground="tomato")
 
-
+    # funções dos botões (command)
     def tom1(self):
         self.text_freqs.set("""Freq.1:   {0} Hz
         freq.2:   {1} Hz""".format(self.frequencia.one[0] ,self.frequencia.one[1]))
