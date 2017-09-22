@@ -21,7 +21,7 @@ def main():
 
     # Import sound as file
     import soundfile as sf
-    y, fs = sf.read('./som1.wav')
+    y, fs = sf.read('./somD.wav')
 
     # Cacula a trasformada de Fourier do sinal
     X, Y = calcFFT(y, fs)
