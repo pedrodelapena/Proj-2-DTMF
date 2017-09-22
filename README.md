@@ -22,7 +22,7 @@ Cada tom foi gerado a partir da soma de duas ondas com frequências diferentes. 
 
 ## Tons Gerados e Captados
 
-Os gráficos abaixo corresponde o sinal de cada um dos tons em função do tempo. A coluna da esquerda representa a soma dos senos das duas frequências utilizadas. Já nos gráficos da direita, primeiramente, ouviu-se o som de outro computador, e a partir disso, foi gerado o gráfico correspondente. Como é possível notar, apesar de semelhantes, ainda é possível ver várias interferências (ruídos) que modificam a onda gerada. A captação de som e a geração deste gráfico está no arquivo [decoderDTMF.py](https://github.com/elisamalzoni/Proj-2-DTMF/blob/master/decodeDTMF.py)
+Os gráficos abaixo corresponde o sinal de cada um dos tons em função do tempo. A coluna da esquerda representa a soma dos senos das duas frequências utilizadas. Já nos gráficos da direita, primeiramente, ouviu-se o som de outro computador, e a partir disso, foi gerado o gráfico correspondente. Como é possível notar, apesar de semelhantes, ainda é possível ver várias interferências (ruídos) que modificam a onda gerada. A captação de som e a geração deste gráfico está no arquivo [decoderDTMF.py](https://github.com/elisamalzoni/Proj-2-DTMF/blob/master/decoderDTMF.py)
 
 | Tecla | Gerado                  |Captado               |
 |:-----:|-------------------------|----------------------|
