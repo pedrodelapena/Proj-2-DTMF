@@ -4,6 +4,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 
 # Calculate de FFT from a signal
 # https://docs.scipy.org/doc/scipy/reference/tutorial/fftpack.html
@@ -21,7 +22,7 @@ def main():
 
     # Import sound as file
     import soundfile as sf
-    y, fs = sf.read('./somD.wav')
+    y, fs = sf.read('./som3.wav')
 
     # Cacula a trasformada de Fourier do sinal
     X, Y = calcFFT(y, fs)
@@ -33,13 +34,24 @@ def main():
     plt.title('Audio no tempo')
 
     ## Exibe modulo 
+    ymax = 20000
+    new_y =[]
+    for y in Y:
+        new_y.append(10*math.log(np.abs(y)/ymax))
+
+    plt.figure("db abs(Y[k])")
+    #plt.stem(X[0:10000], np.abs(Y[0:10000]), linefmt='b-', markerfmt='bo', basefmt='r-')
+    plt.plot(X,new_y)
+    plt.grid()
+    plt.title('DB')
+
     plt.figure("abs(Y[k])")
     #plt.stem(X[0:10000], np.abs(Y[0:10000]), linefmt='b-', markerfmt='bo', basefmt='r-')
     plt.plot(X,np.abs(Y))
     plt.grid()
     plt.title('Modulo Fourier audio')
 
-    ## Exibe fase
+    ## Exibe fases
     plt.figure("Fase(Y[k])")
     plt.plot(X,np.angle(Y))
     plt.grid()

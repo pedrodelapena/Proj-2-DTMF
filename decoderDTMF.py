@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import animation 
 
+
 fs = 44100
 duration = 1
 
@@ -29,4 +30,7 @@ def animate(i):
 anim = animation.FuncAnimation(fig, animate, interval=1000)
     
 plt.show()
+
+ymax = 20000
+new_y = 10*math.log(y/ymax)
 
