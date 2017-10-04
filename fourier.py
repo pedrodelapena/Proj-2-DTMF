@@ -5,6 +5,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import peakutils
 
 # Calculate de FFT from a signal
 # https://docs.scipy.org/doc/scipy/reference/tutorial/fftpack.html
@@ -32,7 +33,9 @@ def main():
         ymax = 20000
         new_y =[]
         for y in Y:
-        new_y.append(10*math.log(np.abs(y)/ymax))
+            new_y.append(10*math.log(np.abs(y)/ymax))
+
+        array_y = np.array(new_y)
 
         plt.figure("db abs(Y[k])")
         #plt.stem(X[0:10000], np.abs(Y[0:10000]), linefmt='b-', markerfmt='bo', basefmt='r-')
@@ -40,9 +43,42 @@ def main():
         plt.grid()
         plt.title('DB')
 
-        indexes = peakutils.indexes(new_y, min_dist=30)
-        peaks_x = peakutils.interpolate(X, new_y, ind=indexes)
-        return(peaks_x)
+        plt.figure("abs(Y[k])")
+        #plt.stem(X[0:10000], np.abs(Y[0:10000]), linefmt='b-', markerfmt='bo', basefmt='r-')
+        plt.plot(X,np.abs(Y))
+        plt.grid()
+        plt.title('Modulo Fourier audio')
+
+        # plt.show()
+
+        indexes = peakutils.indexes(array_y, thres=0.86, min_dist=0)#min_dist = diferença entre as duas frequencia
+        #peaks_x = peakutils.interpolate(X, new_y, ind=indexes)
+
+        peaks_list = []
+        for e in indexes:
+            peaks_list.append(e)
+            
+        max1 = max(peaks_list)
+        peaks_list.remove(max1)
+        max2 = max(peaks_list)
+
+        return(max1, max2)
+    print("1",recebeArquivo(1))
+    print("2",recebeArquivo(2))
+    print("3",recebeArquivo(3))
+    print("A",recebeArquivo('A'))
+    print('4',recebeArquivo(4))
+    print('5',recebeArquivo(5))
+    print('6',recebeArquivo(6))
+    print('B',recebeArquivo('B'))
+    print('7',recebeArquivo(7))
+    print('8',recebeArquivo(8))
+    print('9',recebeArquivo(9))
+    print('C',recebeArquivo('C'))
+    print('*',recebeArquivo('Estrela'))
+    print('0',recebeArquivo(0))
+    print('#',recebeArquivo('Hash'))
+    print('D',recebeArquivo('D'))
 
 
 
@@ -55,20 +91,19 @@ def main():
     ## Exibe modulo 
     
 
-    plt.figure("abs(Y[k])")
-    #plt.stem(X[0:10000], np.abs(Y[0:10000]), linefmt='b-', markerfmt='bo', basefmt='r-')
-    plt.plot(X,np.abs(Y))
-    plt.grid()
-    plt.title('Modulo Fourier audio')
+    # plt.figure("abs(Y[k])")
+    # #plt.stem(X[0:10000], np.abs(Y[0:10000]), linefmt='b-', markerfmt='bo', basefmt='r-')
+    # plt.plot(X,np.abs(Y))
+    # plt.grid()
+    # plt.title('Modulo Fourier audio')
 
-    ## Exibe fases
-    plt.figure("Fase(Y[k])")
-    plt.plot(X,np.angle(Y))
-    plt.grid()
-    plt.title('Modulo Fourier audio')
+    # ## Exibe fases
+    # plt.figure("Fase(Y[k])")
+    # plt.plot(X,np.angle(Y))
+    # plt.grid()
+    # plt.title('Modulo Fourier audio')
 
     ## Exibe gráficos
-    plt.show()
 
 if __name__ == "__main__":
     main()
