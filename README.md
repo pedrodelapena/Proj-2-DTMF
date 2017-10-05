@@ -21,7 +21,7 @@ Projeto 2 Camada Física - 2017.2
 |8      | ![8](img/8d.png)        |![8](img/8f.png)      |
 |9      | ![9](img/9d.png)        |![9](img/9f.png)      | 
 |0      | ![0](img/0d.png)        |![0](img/0f.png)      |
-|A      | ![A](img/ad.png)        |![A](img/af.png)      |
+|A      | ![A](img/azaod.png)       |![A](img/af.png)      |
 |B      | ![B](img/bd.png)        |![B](img/bf.png)      |
 |C      | ![C](img/cd.png)        |![C](img/cf.png)      |
 |D      | ![D](img/dd.png)        |![D](img/df.png)      |
