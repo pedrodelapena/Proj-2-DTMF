@@ -72,9 +72,9 @@ class Main():
         fig.canvas.set_window_title("Gráfico")
 
         ax1 = fig.add_subplot(1,2,2)
-        plt.xlabel('Frequência')
-        plt.ylabel('Decibel')
-        plt.title('DB')
+        ax1.set_xlabel('Frequência')
+        ax1.set_ylabel('Decibel')
+        ax1.set_title('DB')
         ax1.plot(a[2],a[3])
         
         
@@ -111,9 +111,9 @@ class Main():
         ax1.set_ylabel('Sinal')
 
         ax2 = fig.add_subplot(1,2,2)
-        plt.title('energia por frequencia')
-        plt.xlabel('Frequecia(Hz)')
-        plt.ylabel('Energia')
+        ax2.set_title('energia por frequencia')
+        ax2.set_xlabel('Frequecia(Hz)')
+        ax2.set_ylabel('Energia')
 
         def animate(i):
             t=1
@@ -145,6 +145,11 @@ class Main():
             ax2.set_title('energia por frequencia')
             ax2.set_xlabel('Frequecia(Hz)')
             ax2.set_ylabel('Energia')
+
+            #log
+            print("frequencias: {0} Hz, {1}Hz".format(a0,a1))
+            print("tom: {}".format(b))
+            print("-----------------------------------------")
 
         # plotagem do gráfico com animação
         anim = animation.FuncAnimation(fig, animate, interval=1000)
