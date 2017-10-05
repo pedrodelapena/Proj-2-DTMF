@@ -87,10 +87,6 @@ class Main():
         x = tempo
 
         ax2 = fig.add_subplot(1,2,1)
-        ax2.set_title('Sinais pelo tempo')
-        ax2.set_xlabel('Tempo')
-        ax2.set_ylabel('Sinal')
-
         ax2.plot(x[0:1000], y[0:1000], 'c')
         ax2.set_title('Sinais pelo tempo')
         ax2.set_xlabel('Tempo')

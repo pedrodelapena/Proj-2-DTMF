@@ -51,7 +51,7 @@ def geraSom(fList, num):
     ax1.plot(x,y)
 
     # gráfico das frequencias em decibeis (utilizando fourier)
-    ax2 = fig.add_subplot(1,1,1)
+    ax2 = fig.add_subplot(1,2,2)
     ax2.set_xlabel('frequencia(Hz)')
     ax2.set_ylabel('DB')
     ax2.set_title('frequencia por decibel')
