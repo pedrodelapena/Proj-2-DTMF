@@ -47,7 +47,7 @@ class Main():
         self.label = tk.Label(self.window)
         self.label.configure(textvariable=self.text_tom)
         self.label.configure(font="Monospace 12")
-        self.label.grid(row=1, column=0, sticky="nswe")
+        self.label.grid(row=1, column=0, columnspan=3, sticky="nswe")
 
         self.text_freq = tk.StringVar()
         self.text_freq.set("frequncias: ")
@@ -55,7 +55,7 @@ class Main():
         self.label = tk.Label(self.window)
         self.label.configure(textvariable=self.text_freq)
         self.label.configure(font="Monospace 12")
-        self.label.grid(row=2, column=0, sticky="nswe")
+        self.label.grid(row=2, column=0, columnspan=3, sticky="nswe")
 
     def escolhe_arquivo(self):
         # fourier.recebeArquivo(str(texto))
@@ -81,21 +81,17 @@ class Main():
         fs = 44100
         duration = 1
 
-        fig = plt.figure()
-        ax1 = fig.add_subplot(2,1,1)
-        plt.title('Sinais pelo tempo')
-        plt.xlabel('Tempo')
-        plt.ylabel('Sinal')
+        fig = plt.figure(figsize = (10,4), facecolor="w")
+        fig.canvas.set_window_title("Gráfico")
+        ax1 = fig.add_subplot(1,2,1)
+        ax1.set_title('Sinais pelo tempo')
+        ax1.set_xlabel('Tempo')
+        ax1.set_ylabel('Sinal')
 
-        ax2 = fig.add_subplot(2,1,2)
+        ax2 = fig.add_subplot(1,2,2)
         plt.title('energia por frequencia')
         plt.xlabel('Frequecia(Hz)')
         plt.ylabel('Energia')
-
-        # audio = sd.rec(int(duration*fs), fs, channels=1)
-        # sd.wait()
-
-        # y = audio[:,0]
 
         def animate(i):
             t=1
@@ -106,7 +102,6 @@ class Main():
             sd.wait()
 
             y = audio[:,0]
-            #a = fourier.ouveAudio(y)
 
             a  = fourier.ouveAudio(y)
             a0 = str(a[0])
@@ -120,26 +115,19 @@ class Main():
 
             #plt.xlim(0,0.015)
             ax1.plot(x[0:1000], y[0:1000])
-            plt.title('Sinais pelo tempo')
-            plt.xlabel('Tempo')
-            plt.ylabel('Sinal')
+            ax1.set_title('Sinais pelo tempo')
+            ax1.set_xlabel('Tempo')
+            ax1.set_ylabel('Sinal')
 
             ax2.plot(a[2],a[3])
-            plt.title('energia por frequencia')
-            plt.xlabel('Frequecia(Hz)')
-            plt.ylabel('Energia')
+            ax2.set_title('energia por frequencia')
+            ax2.set_xlabel('Frequecia(Hz)')
+            ax2.set_ylabel('Energia')
 
         # plotagem do gráfico com animação
         anim = animation.FuncAnimation(fig, animate, interval=1000)
             
         plt.show()
-
-        
-
- 
-        
-        
-        
 
     def iniciar(self):
         self.window.mainloop()
