@@ -98,7 +98,7 @@ def achaTom(f1, f2):
             return "B"
     elif f1 == 852:
         if f2 == 1209:
-            return "6"
+            return "7"
         elif f2 == 1336:
             return "8"
         elif f2 == 1477:
