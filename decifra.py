@@ -1,5 +1,10 @@
 import tkinter as tk
 import fourier
+import matplotlib.pyplot as plt
+#import decoderDTMF
+import sounddevice as sd
+from matplotlib import animation 
+import numpy as np
 
 
 
@@ -35,7 +40,7 @@ class Main():
 
         self.button_manda = tk.Button(self.window, text = "escuta",font = ("Monospace",12))
         self.button_manda.grid(row = 0, column = 2)
-        # self.button_manda.configure(command = self.escuta)
+        self.button_manda.configure(command = self.escuta)
 
         self.text_tom = tk.StringVar()
         self.text_tom.set("tom: ") # decifra e plota o som
@@ -59,11 +64,82 @@ class Main():
         a=fourier.recebeArquivo(str(texto))
         a0 = str(a[0])
         a1 = str(a[1])
-        a2 = str(a[2])
+        b=fourier.achaTom(a[0], a[1])
         self.text_freq.set("frequencias: {0} Hz, {1}Hz".format(a0,a1))
-        self.text_tom.set("tom: {}".format(a2))
+        self.text_tom.set("tom: {}".format(b))
 
-    # def escuta(self):
+        plt.close("all")
+        fig = plt.figure()
+        ax1 = fig.add_subplot(1,1,1)
+        
+        plt.xlabel('Frequência')
+        plt.ylabel('Decibel')
+        plt.title('DB')
+        ax1.plot(a[2],a[3])
+        plt.show()
+
+    def escuta(self):
+        fs = 44100
+        duration = 1
+
+        fig = plt.figure()
+        ax1 = fig.add_subplot(2,1,1)
+        plt.title('Sinais pelo tempo')
+        plt.xlabel('Tempo')
+        plt.ylabel('Sinal')
+
+        ax2 = fig.add_subplot(2,1,2)
+        plt.title('energia por frequencia')
+        plt.xlabel('Frequecia(Hz)')
+        plt.ylabel('Energia')
+
+        # audio = sd.rec(int(duration*fs), fs, channels=1)
+        # sd.wait()
+
+        # y = audio[:,0]
+
+        def animate(i):
+            t=1
+            tempo=np.linspace(0, t, fs*t)
+            x = tempo
+
+            audio = sd.rec(int(duration*fs), fs, channels=1)
+            sd.wait()
+
+            y = audio[:,0]
+            #a = fourier.ouveAudio(y)
+
+            a  = fourier.ouveAudio(y)
+            a0 = str(a[0])
+            a1 = str(a[1])
+            b=fourier.achaTom(a[0], a[1])
+            self.text_freq.set("frequencias: {0} Hz, {1}Hz".format(a0,a1))
+            self.text_tom.set("tom: {}".format(b))
+
+            ax1.clear()
+            ax2.clear()
+
+            #plt.xlim(0,0.015)
+            ax1.plot(x[0:1000], y[0:1000])
+            plt.title('Sinais pelo tempo')
+            plt.xlabel('Tempo')
+            plt.ylabel('Sinal')
+
+            ax2.plot(a[2],a[3])
+            plt.title('energia por frequencia')
+            plt.xlabel('Frequecia(Hz)')
+            plt.ylabel('Energia')
+
+        # plotagem do gráfico com animação
+        anim = animation.FuncAnimation(fig, animate, interval=1000)
+            
+        plt.show()
+
+        
+
+ 
+        
+        
         
 
     def iniciar(self):

@@ -35,19 +35,32 @@ def recebeArquivo(arquivo):
 
     array_y = np.array(new_y)
 
-    plt.figure("db abs(Y[k])")
-    #plt.stem(X[0:10000], np.abs(Y[0:10000]), linefmt='b-', markerfmt='bo', basefmt='r-')
-    plt.plot(X,new_y)
-    plt.grid()
-    plt.title('DB')
+    indexes = peakutils.indexes(array_y, thres=0.86, min_dist=0)#min_dist = diferença entre as duas frequencia
+    #peaks_x = peakutils.interpolate(X, new_y, ind=indexes)
 
-    plt.figure("abs(Y[k])")
-    #plt.stem(X[0:10000], np.abs(Y[0:10000]), linefmt='b-', markerfmt='bo', basefmt='r-')
-    plt.plot(X,np.abs(Y))
-    plt.grid()
-    plt.title('Modulo Fourier audio')
+    peaks_list = []
+    for e in indexes:
+        peaks_list.append(e)
+        
+    max1 = max(peaks_list)
+    peaks_list.remove(max1)
+    max2 = max(peaks_list)
 
-    # plt.show()
+
+
+    return(max2, max1, X, new_y)
+
+def ouveAudio(y):
+    fs = 44100
+    # Cacula a trasformada de Fourier do sinal
+    X, Y = calcFFT(y, fs)
+
+    ymax = 20000
+    new_y =[]
+    for y in Y:
+        new_y.append(10*math.log(np.abs(y)/ymax))
+
+    array_y = np.array(new_y)
 
     indexes = peakutils.indexes(array_y, thres=0.86, min_dist=0)#min_dist = diferença entre as duas frequencia
     #peaks_x = peakutils.interpolate(X, new_y, ind=indexes)
@@ -60,25 +73,64 @@ def recebeArquivo(arquivo):
     peaks_list.remove(max1)
     max2 = max(peaks_list)
 
-    return(max1, max2)
-# print("1",recebeArquivo(1))
-# print("2",recebeArquivo(2))
-# print("3",recebeArquivo(3))
-# print("A",recebeArquivo('A'))
-# print('4',recebeArquivo(4))
-# print('5',recebeArquivo(5))
-# print('6',recebeArquivo(6))
-# print('B',recebeArquivo('B'))
-# print('7',recebeArquivo(7))
-# print('8',recebeArquivo(8))
-# print('9',recebeArquivo(9))
-# print('C',recebeArquivo('C'))
-# print('*',recebeArquivo('Estrela'))
-# print('0',recebeArquivo(0))
-# print('#',recebeArquivo('Hash'))
-# print('D',recebeArquivo('D'))
 
 
+    return(max2, max1, X, new_y)
+
+def achaTom(f1, f2):
+    if f1 == 697:
+        if f2 == 1209:
+            return "1"
+        elif f2 == 1336:
+            return "2"
+        elif f2 == 1477:
+            return "3"
+        elif f2 == 1633:
+            return "A"
+    elif f1 == 770:
+        if f2 == 1209:
+            return "4"
+        elif f2 == 1336:
+            return "5"
+        elif f2 == 1477:
+            return "6"
+        elif f2 == 1633:
+            return "B"
+    elif f1 == 852:
+        if f2 == 1209:
+            return "6"
+        elif f2 == 1336:
+            return "8"
+        elif f2 == 1477:
+            return "9"
+        elif f2 == 1633:
+            return "C"
+    elif f1 == 941:
+        if f2 == 1209:
+            return "*"
+        elif f2 == 1336:
+            return "0"
+        elif f2 == 1477:
+            return "#"
+        elif f2 == 1633:
+            return "D"
+    else:
+        return "Tom não encontrado"
+
+
+
+
+# plt.figure("db abs(Y[k])")
+# #plt.stem(X[0:10000], np.abs(Y[0:10000]), linefmt='b-', markerfmt='bo', basefmt='r-')
+# plt.plot(X,new_y)
+# plt.grid()
+# plt.title('DB')
+
+# plt.figure("abs(Y[k])")
+# #plt.stem(X[0:10000], np.abs(Y[0:10000]), linefmt='b-', markerfmt='bo', basefmt='r-')
+# plt.plot(X,np.abs(Y))
+# plt.grid()
+# plt.title('Modulo Fourier audio')
 
     ## Exibe sinal no tempo
 # plt.figure("y[n]")

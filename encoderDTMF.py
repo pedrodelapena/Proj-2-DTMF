@@ -8,7 +8,7 @@ f1=1209
 f2=697
 
 fs = 44100
-t=1
+t=5
 tempo = np.linspace(0, t, fs*t)
 
 frequencia = fq.Freq()
