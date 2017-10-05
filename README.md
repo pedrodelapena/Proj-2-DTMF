@@ -4,9 +4,55 @@ author: Elisa Malzoni e Bruna Kimura - elisamm@al.insper.edu.br e brunamk@al.ins
 date: Setembro - 2017
 ---
 
+
 # Proj-2-DTMF
 Projeto 2 Camada Física - 2017.2
+# Parte 2 - Decoder
 
+| Tom   | Sinal Transmitido       |Sinal Captado         |
+|:-----:|-------------------------|----------------------|
+|1      | ![1](img/1d.png)        |![1](img/1f.png)      |
+|2      | ![2](img/2d.png)        |![2](img/2f.png)      |
+|3      | ![3](img/3d.png)        |![3](img/3f.png)      |
+|4      | ![4](img/4d.png)        |![4](img/4f.png)      |
+|5      | ![5](img/5d.png)        |![5](img/5f.png)      |
+|6      | ![6](img/6d.png)        |![6](img/6f.png)      |
+|7      | ![7](img/7d.png)        |![7](img/7f.png)      |
+|8      | ![8](img/8d.png)        |![8](img/8f.png)      |
+|9      | ![9](img/9d.png)        |![9](img/9f.png)      | 
+|0      | ![0](img/0d.png)        |![0](img/0f.png)      |
+|A      | ![A](img/ad.png)        |![A](img/af.png)      |
+|B      | ![B](img/bd.png)        |![B](img/bf.png)      |
+|C      | ![C](img/cd.png)        |![C](img/cf.png)      |
+|D      | ![D](img/dd.png)        |![D](img/df.png)      |
+|*      | ![*](img/estrelad.png)  |![*](img/hashf.png)   |
+|#      | ![#](img/hashd.png)     |![#](img/estrelaf.png)|
+
+
+## Frequências enviadas e recebidas
+| Tom   | Frequência Enviada (Hz) |Frequência Recebida (Hz)|
+|:-----:|:-----------------------:|:----------------------:|
+|1      |697, 1209                |697, 1209               |
+|2      |697, 1336                |697, 1336               |
+|3      |697, 1477                |697, 1477               |
+|4      |770, 1209                |770, 1209               |
+|5      |770, 1336                |770, 1336               |
+|6      |770, 1477                |770, 1477               |
+|7      |852, 1209                |852, 1209               |
+|8      |852, 1336                |852, 1336               |
+|9      |852, 1477                |852, 1477               | 
+|0      |941, 1336                |941, 1336               |
+|A      |697, 1633                |697, 1633               |
+|B      |770, 1633                |770, 1633               |
+|C      |852, 1633                |852, 1633               |
+|D      |941, 1633                |941, 1633               |
+|*      |941, 1209                |941, 1209               |
+|#      |941, 1477                |941, 1477               |
+
+## Justificativa dos tempos utilizados
+A cada 1 segundo atualizamos gráfico e informações na interface (tom e frequências recebidos) conforme aúdio recebido, já para o sinal gerado são 2 segundos, assim o [decoderDTMF.py](https://github.com/elisamalzoni/Proj-2-DTMF/blob/master/decoderDTMF.py) conseguirá identificar. 
+
+# Parte 1 - Encoder
 ## Geração dos tons
 
 Cada tom foi gerado a partir da soma de duas ondas com frequências diferentes. Para tanto, usamos a fórmula *sen(wt)* para gerar a onda, sendo *w = 2πf* (f é uma das frequncias que compõe cada tom) e com o seno variando em função do tempo. A geração deste sinal está no arquivo [encoderDTMF.py](https://github.com/elisamalzoni/Proj-2-DTMF/blob/master/encoderDTMF.py) e o som tem um segundo de duração. A chamda da função de gerar os tons estão no arquivo [keypad.py](https://github.com/elisamalzoni/Proj-2-DTMF/blob/master/keypad.py), que é a interface do projeto.
