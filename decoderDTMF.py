@@ -68,13 +68,35 @@ class Main():
         self.text_tom.set("tom: {}".format(b))
 
         plt.close("all")
-        fig = plt.figure()
-        ax1 = fig.add_subplot(1,1,1)
-        
+        fig = plt.figure(figsize = (10,4), facecolor="w")
+        fig.canvas.set_window_title("Gráfico")
+
+        ax1 = fig.add_subplot(1,2,2)
         plt.xlabel('Frequência')
         plt.ylabel('Decibel')
         plt.title('DB')
         ax1.plot(a[2],a[3])
+        
+        
+        som = './som{0}.wav'.format(texto)
+        import soundfile as sf
+        y, fs = sf.read(som)    
+
+        t=1
+        tempo=np.linspace(0, t, fs*t)
+        x = tempo
+
+        ax2 = fig.add_subplot(1,2,1)
+        ax2.set_title('Sinais pelo tempo')
+        ax2.set_xlabel('Tempo')
+        ax2.set_ylabel('Sinal')
+
+        ax2.plot(x[0:1000], y[0:1000], 'c')
+        ax2.set_title('Sinais pelo tempo')
+        ax2.set_xlabel('Tempo')
+        ax2.set_ylabel('Sinal')
+
+        
         plt.show()
 
     def escuta(self):
@@ -114,7 +136,7 @@ class Main():
             ax2.clear()
 
             #plt.xlim(0,0.015)
-            ax1.plot(x[0:1000], y[0:1000])
+            ax1.plot(x[0:1000], y[0:1000], 'c')
             ax1.set_title('Sinais pelo tempo')
             ax1.set_xlabel('Tempo')
             ax1.set_ylabel('Sinal')
