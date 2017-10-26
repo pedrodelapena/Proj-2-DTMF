@@ -1,10 +1,3 @@
----
-title: Camada Física -  APS 5 - DTMF - Encoder e recepção
-author: Elisa Malzoni e Bruna Kimura - elisamm@al.insper.edu.br e brunamk@al.insper.edu.br
-date: Setembro - 2017
----
-
-
 # Proj-2-DTMF
 Projeto 2 Camada Física - 2017.2
 # Parte 2 - Decoder
